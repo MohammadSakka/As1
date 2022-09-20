@@ -6,6 +6,7 @@ from task3 import decorator
 from task3 import show
 from math import sqrt
 from math import factorial
+from task4 import decorator_4
 
 lambda_f1 = decorator_1(lambda x:print(x))
 
@@ -31,7 +32,11 @@ def print_lablas_tri(n):
         for j in range(i+1):
             print(factorial(i)//(factorial(j)*factorial(i-j)), end=" ")
  
-        print()  
+        print()
+
+@decorator_4
+def buggy_function():
+    print(a)
 
 lambda_f1(2)
 lambda_f1(3)
@@ -41,3 +46,4 @@ quad_eq_sol(1,1,1)
 quad_eq_sol(1,2,1)
 show()
 print_lablas_tri(5)
+buggy_function()

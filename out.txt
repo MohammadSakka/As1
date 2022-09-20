@@ -94,3 +94,19 @@ def print_lablas_tri(n):
  
         print()  
 
+print_lablas_tri call1 executed in 0.279468297958374 sec
+Name: print_lablas_tri
+Type: <class 'function'>
+Sign: (n)
+Doc:  I print lablas triangle
+Source:  @decorator
+def print_lablas_tri(n):
+    '''I print lablas triangle'''
+    for i in range(n):
+        for j in range(n-i+1):    
+            print(end=" ")
+        for j in range(i+1):
+            print(factorial(i)//(factorial(j)*factorial(i-j)), end=" ")
+ 
+        print()
+
