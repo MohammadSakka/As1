@@ -1,7 +1,9 @@
 import time
 import inspect
+import io
+import contextlib
 
-global fun_list
+
 fun_list = []
 class decorator:
     def __init__(self,func):
@@ -11,7 +13,8 @@ class decorator:
         decorator.count += 1
         self.arguments = args
         t = time.time()
-        self.func(*args,**kwargs)
+        with contextlib.redirect_stdout(io.StringIO()) as output:
+            self.func(*args, **kwargs)
         exec_time = time.time() - t
         global fun_list
         with open('out.txt', 'a') as writer: 
@@ -21,6 +24,7 @@ class decorator:
             writer.writelines(f"Sign: {inspect.signature(self.func)}\n")
             writer.writelines(f"Doc:  {self.func.__doc__}\n")
             writer.writelines(f"Source:  {inspect.getsource(self.func)}\n")
+            writer.writelines(f"Output:{output.getvalue()}\n")
         fun_list.append((self.func.__name__, exec_time))
         return self.func
     
