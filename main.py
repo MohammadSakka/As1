@@ -8,6 +8,10 @@ from math import sqrt
 from math import factorial
 from task4 import decorator_4
 
+
+# Maybe it's not so crucial, but in Assignment is said that 
+# we should write 2 functions containing lambda expressions within
+# that is 2 def functions containing lambda functions in body
 lambda_f1 = decorator_1(lambda x:print(x))
 
 lambda_f2 = decorator_1(lambda x:print(x,"2"))
